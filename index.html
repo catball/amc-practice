@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMC 8 Master Training Hub</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; max-width: 900px; margin: 0 auto; padding: 20px; background-color: #f0f4f8; }
+        header { background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%); color: white; padding: 2rem; text-align: center; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        
+        .progress-container { background: white; padding: 20px; border-radius: 10px; margin-bottom: 30px; position: sticky; top: 10px; z-index: 100; box-shadow: 0 4px 10px rgba(0,0,0,0.1); border: 1px solid #dcdde1; }
+        .progress-bg { background: #eee; border-radius: 20px; height: 20px; width: 100%; overflow: hidden; margin: 10px 0; }
+        .progress-fill { background: #27ae60; height: 100%; width: 0%; transition: width 0.5s ease; }
+        
+        h2 { color: #2980b9; border-bottom: 3px solid #3498db; padding-bottom: 10px; margin-top: 40px; }
+        .card { background: white; padding: 25px; border-radius: 10px; box-shadow: 0 2px 15px rgba(0,0,0,0.05); margin-bottom: 25px; }
+        
+        .question-block { margin-bottom: 35px; padding-bottom: 20px; border-bottom: 1px dashed #ddd; display: flex; align-items: flex-start; gap: 15px; }
+        .done-check { transform: scale(1.5); margin-top: 8px; cursor: pointer; }
+        .content-wrap { flex-grow: 1; }
+        
+        .question-text { font-weight: 600; font-size: 1.1rem; color: #2c3e50; display: block; margin-bottom: 10px; }
+        .options-list { list-style-type: none; padding: 0; margin: 10px 0; }
+        .options-list li { background: #f8f9fa; margin: 5px 0; padding: 8px 12px; border-radius: 4px; border: 1px solid #e9ecef; }
+        
+        .answer { color: #27ae60; font-weight: bold; display: none; margin-top: 15px; padding: 15px; background: #f1fcf4; border-radius: 5px; border-left: 4px solid #27ae60; }
+        button { background: #3498db; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; font-weight: bold; margin-top: 10px; }
+        button:hover { background: #2980b9; }
+        .tag { display: inline-block; background: #e1ecf4; color: #39739d; padding: 2px 8px; border-radius: 3px; font-size: 0.8rem; margin-bottom: 8px; font-weight: bold; }
+        #date-display { font-weight: bold; color: #7f8c8d; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>🏆 AMC 8 Master Training Hub</h1>
+    <p>Daily Practice for Success | Date: <span id="date-display"></span></p>
+</header>
+
+<div class="progress-container">
+    <strong>Training Session Progress:</strong>
+    <div class="progress-bg">
+        <div id="progressBar" class="progress-fill"></div>
+    </div>
+    <p id="progressText" style="margin:0; font-weight:bold;">0 of 17 Questions Completed (0%)</p>
+</div>
+
+<h2>Part 1: Real Past Exam Questions</h2>
+<div class="card" id="real-questions">
+    <div class="question-block">
+        <input type="checkbox" class="done-check" onclick="updateProgress()">
+        <div class="content-wrap">
+            <span class="tag">2024 #1</span>
+            <span class="question-text">What is the ones digit of (222 - 22) - (2 - 2 - 2 - 2 - 2)?</span>
+            <ul class="options-list">
+                <li>(A) 0 &nbsp; (B) 2 &nbsp; (C) 4 &nbsp; (D) 6 &nbsp; (E) 8</li>
+            </ul>
+            <button onclick="toggle('r1')">Show Solution</button>
+            <div id="r1" class="answer">Correct Answer: (D) 6 <br>Solution: (200) - (-6) = 206. The ones digit is 6.</div>
+        </div>
+    </div>
+
+    <div class="question-block">
+        <input type="checkbox" class="done-check" onclick="updateProgress()">
+        <div class="content-wrap">
+            <span class="tag">2024 #2</span>
+            <span class="question-text">Value of 44/11 + 110/44 + 44/1100 in decimal?</span>
+            <ul class="options-list">
+                <li>(A) 6.44 &nbsp; (B) 6.50 &nbsp; (C) 6.54 &nbsp; (D) 6.94 &nbsp; (E) 7.04</li>
+            </ul>
+            <button onclick="toggle('r2')">Show Solution</button>
+            <div id="r2" class="answer">Correct Answer: (C) 6.54 <br>Solution: 4 + 2.5 + 0.04 = 6.54.</div>
+        </div>
+    </div>
+
+    <div class="question-block">
+        <input type="checkbox" class="done-check" onclick="updateProgress()">
+        <div class="content-wrap">
+            <span class="tag">2024 #4</span>
+            <span class="question-text">Yunji added integers 1 to 9 but left one out. Her sum was a perfect square. Which number did she leave out?</span>
+            <ul class="options-list">
+                <li>(A) 5 &nbsp; (B) 6 &nbsp; (C) 7 &nbsp; (D) 8 &nbsp; (E) 9</li>
+            </ul>
+            <button onclick="toggle('r3')">Show Solution</button>
+            <div id="r3" class="answer">Correct Answer: (E) 9 <br>Solution: Sum of 1-9 is 45. 45 - 9 = 36 (a perfect square).</div>
+        </div>
+    </div>
+
+    <div class="question-block">
+        <input type="checkbox" class="done-check" onclick="updateProgress()">
+        <div class="content-wrap">
+            <span class="tag">2023 #6</span>
+            <span class="question-text">Value of (8 x 4 + 2) - (8 + 4 x 2)?</span>
+            <ul class="options-list">
+                <li>(A) 0 &nbsp; (B) 2 &nbsp; (C) 12 &nbsp; (D) 18 &nbsp; (E) 34</li>
+            </ul>
+            <button onclick="toggle('r4')">Show Solution</button>
+            <div id="r4" class="answer">Correct Answer: (D) 18 <br>Solution: 34 - 16 = 18.</div>
+        </div>
+    </div>
+
+    <div class="question-block">
+        <input type="checkbox" class="done-check" onclick="updateProgress()">
+        <div class="content-wrap">
+            <span class="tag">2023 #7</span>
+            <span class="question-text">A lake has 250 trout. A sample of 180 fish has 30 trout. Total fish in lake?</span>
+            <ul class="options-list">
+                <li>(A) 1200 &nbsp; (B) 1500 &nbsp; (C) 1800 &nbsp; (D) 2000 &nbsp; (E) 3000</li>
+            </ul>
+            <button onclick="toggle('r5')">Show Solution</button>
+            <div id="r5" class="answer">Correct Answer: (B) 1500 <br>Solution: 1/6 are trout. 250 x 6 = 1500.</div>
+        </div>
+    </div>
+</div>
+
+<h2>Part 2: Mini-Mock Practice Test</h2>
+<div class="card" id="practice-questions">
+    <div class="question-block">
+        <input type="checkbox" class="done-check" onclick="updateProgress()">
+        <div class="content-wrap">
+            <span class="tag">Practice #1</span>
+            <span class="question-text">What is the value of (20 x 24) - (20 + 24)?</span>
+            <ul class="options-list">
+                <li>(A) 436 &nbsp; (B) 440 &nbsp; (C) 456 &nbsp; (D) 480 &nbsp; (E) 524</li>
+            </ul>
+            <button onclick="toggle('p1')">Show Solution</button>
+            <div id="p1" class="answer">Correct Answer: (A) 436</div>
+        </div>
+    </div>
+
+    <div class="question-block">
+        <input type="checkbox" class="done-check" onclick="updateProgress()">
+        <div class="content-wrap">
+            <span class="tag">Practice #2</span>
+            <span class="question-text">Temp was -5°C. Rose 12°C by noon, fell 7°C by 6PM. Final temp?</span>
+            <ul class="options-list">
+                <li>(A) -12°C &nbsp; (B) -5°C &nbsp; (C) 0°C &nbsp; (D) 5°C &nbsp; (E) 14°C</li>
+            </ul>
+            <button onclick="toggle('p2')">Show Solution</button>
+            <div id="p2" class="answer">Correct Answer: (C) 0°C</div>
+        </div>
+    </div>
+
+    <div class="question-block">
+        <input type="checkbox" class="done-check" onclick="updateProgress()">
+        <div class="content-wrap">
+            <span class="tag">Practice #3</span>
+            <span class="question-text">3 identical candy bars cost $5.25. How much for 5?</span>
+            <ul class="options-list">
+                <li>(A) $7.00 &nbsp; (B) $8.75 &nbsp; (C) $9.25 &nbsp; (D) $10.50 &nbsp; (E) $11.25</li>
+            </ul>
+            <button onclick="toggle('p3')">Show Solution</button>
+            <div id="p3" class="answer">Correct Answer: (B) $8.75</div>
+        </div>
+    </div>
+
+    <div class="question-block">
+        <input type="checkbox" class="done-check" onclick="updateProgress()">
+        <div class="content-wrap">
+            <span class="tag">Practice #4</span>
+            <span class="question-text">What is the ones digit of the product 13 x 17 x 19?</span>
+            <ul class="options-list">
+                <li>(A) 1 &nbsp; (B) 3 &nbsp; (C) 7 &nbsp; (D) 9 &nbsp; (E) 0</li>
+            </ul>
+            <button onclick="toggle('p4')">Show Solution</button>
+            <div id="p4" class="answer">Correct Answer: (D) 9</div>
+        </div>
+    </div>
+
+    <div class="question-block">
+        <input type="checkbox" class="done-check" onclick="updateProgress()">
+        <div class="content-wrap">
+            <span class="tag">Practice #5</span>
+            <span class="question-text">Rectangular garden perimeter is 40m. Length is 12m. Area?</span>
+            <ul class="options-list">
+                <li>(A) 48 &nbsp; (B) 96 &nbsp; (C) 144 &nbsp; (D) 336 &nbsp; (E) 480</li>
+            </ul>
+            <button onclick="toggle('p5')">Show Solution</button>
+            <div id="p5" class="answer">Correct Answer: (B) 96 sq meters</div>
+        </div>
+    </div>
+
+    <div class="question-block">
+        <input type="checkbox" class="done-check" onclick="updateProgress()">
+        <div class="content-wrap">
+            <span class="tag">Practice #6</span>
+            <span class="question-text">Largest value: (1/2 of 40), (25% of 100), (0.2 x 80), or (5+6+7)?</span>
+            <ul class="options-list">
+                <li>(A) 1/2 of 40 &nbsp; (B) 25% of 100 &nbsp; (C) 0.2 x 80 &nbsp; (D) 5+6+7</li>
+            </ul>
+            <button onclick="toggle('p6')">Show Solution</button>
+            <div id="p6" class="answer">Correct Answer: (B) 25% of 100 (which is 25)</div>
+        </div>
+    </div>
+
+    <div class="question-block">
+        <input type="checkbox" class="done-check" onclick="updateProgress()">
+        <div class="content-wrap">
+            <span class="tag">Practice #7</span>
+            <span class="question-text">Bag has 4 red, 5 blue, 11 green. Probability it is NOT green?</span>
+            <ul class="options-list">
+                <li>(A) 4/20 &nbsp; (B) 5/20 &nbsp; (C) 9/20 &nbsp; (D) 11/20 &nbsp; (E) 1/2</li>
+            </ul>
+            <button onclick="toggle('p7')">Show Solution</button>
+            <div id="p7" class="answer">Correct Answer: (C) 9/20</div>
+        </div>
+    </div>
+
+    <div class="question-block">
+        <input type="checkbox" class="done-check" onclick="updateProgress()">
+        <div class="content-wrap">
+            <span class="tag">Practice #8</span>
+            <span class="question-text">Average (mean) of the first five prime numbers?</span>
+            <ul class="options-list">
+                <li>(A) 5.0 &nbsp; (B) 5.6 &nbsp; (C) 5.8 &nbsp; (D) 6.2 &nbsp; (E) 7.0</li>
+            </ul>
+            <button onclick="toggle('p8')">Show Solution</button>
+            <div id="p8" class="answer">Correct Answer: (B) 5.6</div>
+        </div>
+    </div>
+
+    <div class="question-block">
+        <input type="checkbox" class="done-check" onclick="updateProgress()">
+        <div class="content-wrap">
+            <span class="tag">Practice #9</span>
+            <span class="question-text">Square area is 64. Perimeter?</span>
+            <ul class="options-list">
+                <li>(A) 16 &nbsp; (B) 32 &nbsp; (C) 64 &nbsp; (D) 128 &nbsp; (E) 256</li>
+            </ul>
+            <button onclick="toggle('p9')">Show Solution</button>
+            <div id="p9" class="answer">Correct Answer: (B) 32</div>
+        </div>
+    </div>
+
+    <div class="question-block">
+        <input type="checkbox" class="done-check" onclick="updateProgress()">
+        <div class="content-wrap">
+            <span class="tag">Practice #10</span>
+            <span class="question-text">If 3x + 5 = 26, value of 2x - 1?</span>
+            <ul class="options-list">
+                <li>(A) 7 &nbsp; (B) 11 &nbsp; (C) 13 &nbsp; (D) 15 &nbsp; (E) 21</li>
+            </ul>
+            <button onclick="toggle('p10')">Show Solution</button>
+            <div id="p10" class="answer">Correct Answer: (C) 13</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Set current date
+    document.getElementById('date-display').innerText = new Date().toLocaleDateString();
+
+    // Toggle solution visibility
+    function toggle(id) {
+        var x = document.getElementById(id);
+        x.style.display = (x.style.display === "block") ? "none" : "block";
+    }
+
+    // Update progress bar
+    function updateProgress() {
+        const checkboxes = document.querySelectorAll('.done-check');
+        const checked = document.querySelectorAll('.done-check:checked');
+        const percentage = Math.round((checked.length / checkboxes.length) * 100);
+        
+        document.getElementById('progressBar').style.width = percentage + "%";
+        document.getElementById('progressText').innerText = checked.length + " of " + checkboxes.length + " Questions Completed (" + percentage + "%)";
+    }
+</script>
+
+</body>
+</html>
